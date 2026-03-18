@@ -30,7 +30,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 40px 80px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 35%,rgba(204,34,0,.15) 0%,transparent 65%),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,.012) 80px,rgba(255,255,255,.012) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,255,255,.012) 80px,rgba(255,255,255,.012) 81px)}
 .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;position:relative}
-.hero-logo{width:min(260px,55vw);height:auto;filter:drop-shadow(0 0 40px rgba(204,34,0,.5));margin-bottom:20px;position:relative}
+.hero-logos{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:20px;position:relative}
+.hero-logo{width:min(220px,44vw);height:auto;filter:drop-shadow(0 0 40px rgba(204,34,0,.5))}
+.hero-logo-divider{width:1px;height:60px;background:rgba(255,255,255,.15);flex-shrink:0}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,14vw,160px);line-height:.88;position:relative;margin-bottom:4px}
 .hero-title .line1{color:var(--white);display:block}
 .hero-title .line2{color:var(--red);display:block}
@@ -166,7 +168,11 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 <div class="hero">
   <div class="hero-bg"></div>
   <div class="hero-eyebrow">Maxled Youth Presents</div>
-  <img src="images/logo.png" alt="Maxled Youth" class="hero-logo">
+  <div class="hero-logos">
+    <img src="images/logo.png" alt="Maxled Youth" class="hero-logo">
+    <div class="hero-logo-divider"></div>
+    <img src="images/crew.png" alt="Maxled Crew" class="hero-logo">
+  </div>
   <h1 class="hero-title">
     <span class="line1">Queens</span>
     <span class="line2">Boro</span>

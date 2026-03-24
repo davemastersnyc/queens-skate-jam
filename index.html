@@ -12,7 +12,7 @@
   --red:#CC2200;
   --red-bright:#FF2A00;
   --yellow:#FFD000;
-  --white:#F5F0E8;
+  --white:#FAF6EE;
   --gray:#181818;
   --gray-mid:#242424;
 }
@@ -20,7 +20,9 @@ html{scroll-behavior:smooth}
 body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 40px;background:rgba(8,8,8,0.95);border-bottom:2px solid var(--red);backdrop-filter:blur(12px)}
+.nav-brand{display:flex;flex-direction:column;align-items:flex-start;gap:1px}
 .nav-logo{height:52px;width:auto}
+.nav-presents{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(250,246,238,.4)}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--white);text-decoration:none;opacity:.75;transition:color .2s,opacity .2s}
 .nav-links a:hover{color:var(--yellow);opacity:1}
@@ -29,14 +31,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 40px 80px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 35%,rgba(204,34,0,.15) 0%,transparent 65%),repeating-linear-gradient(0deg,transparent,transparent 80px,rgba(255,255,255,.012) 80px,rgba(255,255,255,.012) 81px),repeating-linear-gradient(90deg,transparent,transparent 80px,rgba(255,255,255,.012) 80px,rgba(255,255,255,.012) 81px)}
-.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--yellow);margin-bottom:16px;position:relative}
-.hero-logos{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:20px;position:relative}
-.hero-logo{width:min(220px,44vw);height:auto;filter:drop-shadow(0 0 40px rgba(204,34,0,.5))}
-.hero-logo-divider{width:1px;height:60px;background:rgba(255,255,255,.15);flex-shrink:0}
+.hero-unisphere{position:absolute;right:-6%;top:50%;transform:translateY(-52%);width:min(500px,78vw);opacity:.15;pointer-events:none;filter:drop-shadow(0 0 50px rgba(204,34,0,.4))}
+.hero-logos{display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative}
+.hero-logo{width:min(260px,52vw);height:auto;filter:drop-shadow(0 0 40px rgba(204,34,0,.5))}
 .hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,14vw,160px);line-height:.88;position:relative;margin-bottom:4px}
-.hero-title .line1{color:var(--white);display:block}
-.hero-title .line2{color:var(--red);display:block}
-.hero-title .line3{color:var(--yellow);display:block;font-size:clamp(36px,6vw,72px);letter-spacing:8px}
+.hero-title .line1{color:var(--white);display:block;-webkit-text-stroke:1px rgba(250,246,238,.3)}
+.hero-title .line2{color:var(--red);display:block;-webkit-text-stroke:2px var(--red);text-shadow:0 0 60px rgba(204,34,0,.4)}
+.hero-title .line3{color:var(--yellow);display:block;font-size:clamp(36px,6vw,72px);letter-spacing:10px;-webkit-text-stroke:1px rgba(255,208,0,.5)}
 .hero-meta{display:flex;margin:32px 0 40px;position:relative;border:1px solid rgba(255,255,255,.1)}
 .hero-meta-item{padding:14px 32px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
 .hero-meta-item:last-child{border-right:none}
@@ -57,7 +58,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .divider{height:3px;background:linear-gradient(90deg,transparent,var(--red),var(--yellow),var(--red),transparent)}
 
 section{padding:80px 40px;max-width:1100px;margin:0 auto}
-.section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,80px);line-height:.95;color:var(--white);margin-bottom:40px}
 
 .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start}
@@ -84,6 +85,9 @@ section{padding:80px 40px;max-width:1100px;margin:0 auto}
 .free-banner{background:var(--red);padding:18px 32px;text-align:center;margin-top:2px}
 .free-banner p{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--white)}
 
+#contests{position:relative;background-image:url('images/skatepark.jpg');background-size:cover;background-position:center top}
+#contests::before{content:'';position:absolute;inset:0;background:rgba(8,8,8,.82);z-index:0}
+#contests .section-label,#contests .section-title,#contests .contests-grid{position:relative;z-index:1}
 .contests-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2px;background:rgba(255,255,255,.06)}
 .contest-card{background:var(--gray);padding:28px;transition:background .2s}
 .contest-card:hover{background:#1e1e1e}
@@ -109,12 +113,17 @@ section{padding:80px 40px;max-width:1100px;margin:0 auto}
 .register-section .section-title{color:#111111}
 .tally-wrap iframe{background:transparent !important}
 
-.sponsors-section{padding:60px 40px;max-width:1100px;margin:0 auto;text-align:center}
+.sponsors-wrap{position:relative;overflow:hidden}
+.sponsors-section{padding:60px 40px;max-width:1100px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .sponsors-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:28px}
-.sponsors-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.sponsor-pill{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;padding:9px 22px;border:1px solid rgba(255,255,255,.12);color:rgba(245,240,232,.65);transition:border-color .2s,color .2s}
-.sponsor-pill:hover{border-color:var(--yellow);color:var(--yellow)}
-.sponsor-pill.featured{border-color:rgba(204,34,0,.5);color:var(--white)}
+.sponsor-logo-row{display:flex;flex-wrap:wrap;gap:28px 48px;justify-content:center;align-items:center;margin-bottom:28px}
+.sponsor-logo-img{height:56px;width:auto;max-width:180px;object-fit:contain;opacity:.75;transition:opacity .2s;filter:drop-shadow(0 0 6px rgba(255,255,255,.08))}
+.sponsor-logo-img:hover{opacity:1}
+.sponsor-logo-img.featured{height:64px;max-width:200px;opacity:.88}
+.sponsor-logo-img.square{height:64px;width:64px}
+.sponsor-text{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;padding:10px 20px;border:1px solid rgba(255,255,255,.15);color:rgba(250,246,238,.65);white-space:nowrap;transition:border-color .2s,color .2s}
+.sponsor-text:hover{border-color:var(--yellow);color:var(--yellow)}
+.sponsor-text.featured{border-color:rgba(204,34,0,.45);color:var(--white)}
 .sponsor-cta-box{margin:40px auto 0;padding:24px;border:1px solid rgba(255,208,0,.2);max-width:460px;text-align:center}
 .sponsor-cta-box .lbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--yellow);margin-bottom:8px}
 .sponsor-cta-box p{font-size:14px;color:rgba(245,240,232,.55);line-height:1.7;margin-bottom:16px}
@@ -154,7 +163,10 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 <body>
 
 <nav>
-  <img src="images/logo.png" alt="Maxled Youth" class="nav-logo">
+  <div class="nav-brand">
+    <img src="images/logo.png" alt="Maxled Youth" class="nav-logo">
+    <span class="nav-presents">presents</span>
+  </div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#contests">Contests</a></li>
@@ -167,11 +179,42 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 
 <div class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-eyebrow">Maxled Youth Presents</div>
+  <svg class="hero-unisphere" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <clipPath id="gc"><circle cx="250" cy="235" r="195"/></clipPath>
+    </defs>
+    <circle cx="250" cy="235" r="195" fill="rgba(204,34,0,0.05)"/>
+    <g clip-path="url(#gc)" fill="none">
+      <ellipse cx="250" cy="50"  rx="52"  ry="17"  stroke="rgba(255,255,255,.1)"  stroke-width="0.8"/>
+      <ellipse cx="250" cy="69"  rx="98"  ry="32"  stroke="rgba(255,255,255,.1)"  stroke-width="0.8"/>
+      <ellipse cx="250" cy="100" rx="138" ry="46"  stroke="rgba(255,255,255,.12)" stroke-width="0.8"/>
+      <ellipse cx="250" cy="138" rx="168" ry="56"  stroke="rgba(255,255,255,.12)" stroke-width="0.8"/>
+      <ellipse cx="250" cy="185" rx="188" ry="62"  stroke="rgba(255,255,255,.12)" stroke-width="0.8"/>
+      <ellipse cx="250" cy="235" rx="195" ry="64"  stroke="rgba(255,255,255,.22)" stroke-width="1.2"/>
+      <ellipse cx="250" cy="285" rx="188" ry="62"  stroke="rgba(255,255,255,.12)" stroke-width="0.8"/>
+      <ellipse cx="250" cy="332" rx="168" ry="56"  stroke="rgba(255,255,255,.12)" stroke-width="0.8"/>
+      <ellipse cx="250" cy="370" rx="138" ry="46"  stroke="rgba(255,255,255,.12)" stroke-width="0.8"/>
+      <ellipse cx="250" cy="401" rx="98"  ry="32"  stroke="rgba(255,255,255,.1)"  stroke-width="0.8"/>
+      <ellipse cx="250" cy="420" rx="52"  ry="17"  stroke="rgba(255,255,255,.1)"  stroke-width="0.8"/>
+      <line   x1="250" y1="40"  x2="250" y2="430"  stroke="rgba(255,255,255,.1)"  stroke-width="0.8"/>
+      <ellipse cx="250" cy="235" rx="74"  ry="195" stroke="rgba(255,255,255,.08)" stroke-width="0.8"/>
+      <ellipse cx="250" cy="235" rx="138" ry="195" stroke="rgba(255,255,255,.1)"  stroke-width="0.8"/>
+      <ellipse cx="250" cy="235" rx="178" ry="195" stroke="rgba(255,255,255,.08)" stroke-width="0.8"/>
+    </g>
+    <circle cx="250" cy="235" r="195" fill="none" stroke="rgba(255,255,255,.38)" stroke-width="1.5"/>
+    <ellipse cx="250" cy="235" rx="238" ry="54" fill="none" stroke="rgba(255,255,255,.58)" stroke-width="2.5" transform="rotate(-18,250,235)"/>
+    <ellipse cx="250" cy="235" rx="238" ry="54" fill="none" stroke="rgba(255,255,255,.58)" stroke-width="2.5" transform="rotate(28,250,235)"/>
+    <ellipse cx="250" cy="235" rx="234" ry="50" fill="none" stroke="rgba(255,255,255,.4)"  stroke-width="2"   transform="rotate(76,250,235)"/>
+    <g stroke="rgba(255,255,255,.32)" stroke-width="3" fill="none">
+      <line x1="250" y1="430" x2="250" y2="540"/>
+      <line x1="250" y1="430" x2="193" y2="535"/>
+      <line x1="250" y1="430" x2="307" y2="535"/>
+    </g>
+    <line x1="193" y1="496" x2="307" y2="496" stroke="rgba(255,255,255,.18)" stroke-width="2"/>
+    <ellipse cx="250" cy="540" rx="62" ry="12" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>
+  </svg>
   <div class="hero-logos">
     <img src="images/logo.png" alt="Maxled Youth" class="hero-logo">
-    <div class="hero-logo-divider"></div>
-    <img src="images/crew.png" alt="Maxled Crew" class="hero-logo">
   </div>
   <h1 class="hero-title">
     <span class="line1">Queens</span>
@@ -179,7 +222,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <span class="line3">Bash 2026</span>
   </h1>
   <div class="hero-meta">
-    <div class="hero-meta-item"><span class="hero-meta-label">Date</span><span class="hero-meta-value">May 30, 2026</span></div>
+    <div class="hero-meta-item"><span class="hero-meta-label">Date</span><span class="hero-meta-value">June 13, 2026</span></div>
     <div class="hero-meta-item"><span class="hero-meta-label">Venue</span><span class="hero-meta-value">Maloof Skatepark</span></div>
     <div class="hero-meta-item"><span class="hero-meta-label">Location</span><span class="hero-meta-value">Flushing Meadows, Queens</span></div>
     <div class="hero-meta-item"><span class="hero-meta-label">Admission</span><span class="hero-meta-value" style="color:var(--yellow)">Free</span></div>
@@ -197,8 +240,8 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <span class="ticker-item">Adaptive Division</span>
     <span class="ticker-item">Free Food and Drinks</span>
     <span class="ticker-item">Prizes and Gear</span>
-    <span class="ticker-item">Queens Museum Passes</span>
-    <span class="ticker-item">May 30, 2026</span>
+    <span class="ticker-item">Skate Shoes and Footwear</span>
+    <span class="ticker-item">June 13, 2026</span>
     <span class="ticker-item">Maloof Skatepark, Queens NY</span>
     <span class="ticker-item">Life Lessons Through Skateboarding</span>
     <span class="ticker-item">Free Community Event</span>
@@ -206,8 +249,8 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <span class="ticker-item">Adaptive Division</span>
     <span class="ticker-item">Free Food and Drinks</span>
     <span class="ticker-item">Prizes and Gear</span>
-    <span class="ticker-item">Queens Museum Passes</span>
-    <span class="ticker-item">May 30, 2026</span>
+    <span class="ticker-item">Skate Shoes and Footwear</span>
+    <span class="ticker-item">June 13, 2026</span>
     <span class="ticker-item">Maloof Skatepark, Queens NY</span>
     <span class="ticker-item">Life Lessons Through Skateboarding</span>
   </div>
@@ -220,7 +263,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
       <h2 class="section-title">Life Lessons<br>Through<br>Skateboarding</h2>
       <div class="about-credential">NYC Dept. of Education Certified Vendor</div>
       <p>The Queens Boro Bash is a free, all-ages community event hosted by Maxled Youth at Maloof Skatepark in Flushing Meadows. A full day of competition, community, free food, and prizes, open to everyone.</p>
-      <p>Founded by Max Suarez, Maxled Youth is a Queens-based after-school program that uses skateboarding to teach confidence, focus, and resilience. We partner with NYC public schools and specialize in working with students with special needs.</p>
+      <p>Founded by Max Suarez, Maxled Youth is a Queens-based after-school program that uses skateboarding to teach confidence, focus, resilience, character development, and personal growth. We partner with NYC public schools and specialize in working with students with special needs.</p>
       <p>This event is a reflection of that mission: inclusive, community-first, and rooted in Queens.</p>
       <div class="about-stats">
         <div class="about-stat"><div class="about-stat-num">5+</div><div class="about-stat-label">Divisions</div></div>
@@ -241,6 +284,9 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
         <p>"With Max's instruction, my son's skills and confidence have improved dramatically and he looks forward to every lesson. You will conquer your fears with Max."</p>
         <cite>David Sarno, Parent</cite>
       </div>
+      <div style="text-align:center;margin-top:32px">
+        <img src="images/crew.png" alt="Maxled Crew" style="width:min(160px,40vw);opacity:.5;filter:drop-shadow(0 0 20px rgba(204,34,0,.3))">
+      </div>
     </div>
   </div>
 </section>
@@ -255,7 +301,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
       <div class="prize-item"><span class="prize-icon">🛹</span><div class="prize-name">Decks</div><div class="prize-desc">Skateboards</div></div>
       <div class="prize-item"><span class="prize-icon">&#9881;&#65039;</span><div class="prize-name">Bearings</div><div class="prize-desc">Bones and More</div></div>
       <div class="prize-item"><span class="prize-icon">&#128085;</span><div class="prize-name">Gear</div><div class="prize-desc">Shirts and Apparel</div></div>
-      <div class="prize-item"><span class="prize-icon">&#127903;&#65039;</span><div class="prize-name">Museum Passes</div><div class="prize-desc">Queens Museum</div></div>
+      <div class="prize-item"><span class="prize-icon">👟</span><div class="prize-name">Footwear</div><div class="prize-desc">Skate Shoes</div></div>
       <div class="prize-item"><span class="prize-icon">&#128278;</span><div class="prize-name">Stickers</div><div class="prize-desc">Brand Packs</div></div>
       <div class="prize-item"><span class="prize-icon">🕺</span><div class="prize-name">Breakdancing</div><div class="prize-desc">Live Performance</div></div>
     </div>
@@ -333,32 +379,34 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   </div>
 </div>
 
-<div class="sponsors-section" id="sponsors">
+<div class="sponsors-wrap" id="sponsors">
+<div class="sponsors-section">
   <div class="sponsors-label">Proud Sponsors of the Queens Boro Bash 2026</div>
-  <div class="sponsors-label" style="font-size:10px;letter-spacing:3px;color:var(--red);margin-bottom:8px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:600">Confirmed Sponsors</div>
-  <div class="sponsors-grid" style="margin-bottom:20px">
-    <div class="sponsor-pill featured">Torro Skateboards</div>
-    <div class="sponsor-pill featured">NY State of Mind</div>
-    <div class="sponsor-pill featured">Bones Bearings</div>
-    <div class="sponsor-pill featured">Substance Skatepark</div>
-    <div class="sponsor-pill featured">Dynasty Break Dancing Crew</div>
+  <div class="sponsors-label" style="font-size:10px;letter-spacing:3px;color:var(--red);margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:600">Confirmed Sponsors</div>
+  <div class="sponsor-logo-row" style="margin-bottom:32px">
+    <img src="images/sponsors/torro.png"    alt="Torro Skateboards"      class="sponsor-logo-img featured">
+    <div class="sponsor-text featured">NY State of Mind</div>
+    <img src="images/sponsors/bones.png"    alt="Bones Bearings"          class="sponsor-logo-img featured square">
+    <img src="images/sponsors/substance.png" alt="Substance Skatepark"   class="sponsor-logo-img featured">
+    <div class="sponsor-text featured">Dynasty Break Dancing Crew</div>
   </div>
-  <div class="sponsors-label" style="font-size:10px;letter-spacing:3px;color:rgba(245,240,232,.4);margin-bottom:8px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">Community Partners</div>
-  <div class="sponsors-grid">
-    <div class="sponsor-pill">FTC</div>
-    <div class="sponsor-pill">Uncle Funky's</div>
-    <div class="sponsor-pill">Pow Skateboards</div>
-    <div class="sponsor-pill">Instarampny</div>
-    <div class="sponsor-pill">Sideshow Skate Shop</div>
-    <div class="sponsor-pill">LICK Skateshop</div>
-    <div class="sponsor-pill">Skate Coalition</div>
-    <div class="sponsor-pill" style="border-style:dashed;opacity:.4">+ More</div>
+  <div class="sponsors-label" style="font-size:10px;letter-spacing:3px;color:rgba(245,240,232,.4);margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">Community Partners</div>
+  <div class="sponsor-logo-row">
+    <div class="sponsor-text">FTC</div>
+    <img src="images/sponsors/uncle-funkys.png" alt="Uncle Funky's"      class="sponsor-logo-img">
+    <img src="images/sponsors/pow.png"          alt="POW Skateboards"    class="sponsor-logo-img">
+    <img src="images/sponsors/instaramp.png"    alt="InstaRamp NY"       class="sponsor-logo-img">
+    <img src="images/sponsors/sideshow.png"     alt="Sideshow Skate Shop" class="sponsor-logo-img">
+    <img src="images/sponsors/lick.png"         alt="LICK Skateshop"     class="sponsor-logo-img">
+    <img src="images/sponsors/coalition.png"    alt="Skate Coalition"    class="sponsor-logo-img">
+    <div class="sponsor-text" style="border-style:dashed;opacity:.4">+ More</div>
   </div>
   <div class="sponsor-cta-box">
     <div class="lbl">Become a Sponsor</div>
     <p>Help us grow this event and support youth skateboarding in Queens. Sponsorship packages available at all levels.</p>
     <a href="/cdn-cgi/l/email-protection#4f262129200f222e37232a2b36203a3b27612c2022" class="btn-outline" style="font-size:15px;padding:10px 28px">Get Sponsor Info</a>
   </div>
+</div>
 </div>
 
 <div class="divider"></div>
@@ -374,7 +422,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
       <div class="location-address">
         Flushing Meadows Corona Park<br>
         Queens, New York<br><br>
-        <strong style="color:var(--yellow)">Saturday, May 30, 2026</strong><br>
+        <strong style="color:var(--yellow)">Saturday, June 13, 2026</strong><br>
         Free Admission, All Ages
       </div>
       <a href="https://maps.google.com/?q=Maloof+Skatepark+Flushing+Meadows+Queens+NY" target="_blank" class="btn-outline" style="font-size:15px;padding:10px 28px;display:inline-block">Open in Maps</a>

@@ -67,7 +67,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-meta{display:flex;margin:32px 0 40px;position:relative;border:1px solid rgba(255,255,255,.1)}
 .hero-meta-item{padding:14px 32px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
 .hero-meta-item:last-child{border-right:none}
-.hero-meta-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.4);display:block;margin-bottom:4px}
+.hero-meta-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.8);display:block;margin-bottom:4px}
 .hero-meta-value{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:var(--white)}
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
 .btn-primary{display:inline-block;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;padding:16px 48px;background:var(--red);color:var(--white);text-decoration:none;border:none;cursor:pointer;transition:background .2s,transform .1s}
@@ -143,10 +143,10 @@ section{padding:80px 40px;max-width:1100px;margin:0 auto}
 .sponsors-section{padding:60px 40px;max-width:1100px;margin:0 auto;text-align:center;position:relative;z-index:1}
 .sponsors-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.35);margin-bottom:28px}
 .sponsor-logo-row{display:flex;flex-wrap:wrap;gap:28px 48px;justify-content:center;align-items:center;margin-bottom:28px}
-.sponsor-logo-img{height:56px;width:auto;max-width:180px;object-fit:contain;opacity:.75;transition:opacity .2s,filter .2s;filter:grayscale(1) drop-shadow(0 0 6px rgba(255,255,255,.08))}
-.sponsor-logo-img:hover{opacity:1;filter:grayscale(0) drop-shadow(0 0 8px rgba(255,255,255,.15))}
-.sponsor-logo-img.featured{height:64px;max-width:200px;opacity:.88}
-.sponsor-logo-img.square{height:64px;width:64px}
+.sponsor-logo-img{height:72px;width:auto;max-width:220px;object-fit:contain;opacity:.85;transition:opacity .2s,filter .2s;filter:drop-shadow(0 0 6px rgba(255,255,255,.08))}
+.sponsor-logo-img:hover{opacity:1;filter:drop-shadow(0 0 14px rgba(255,255,255,.25))}
+.sponsor-logo-img.featured{height:88px;max-width:240px;opacity:.95}
+.sponsor-logo-img.square{height:88px;width:88px}
 .sponsor-text{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;padding:10px 20px;border:1px solid rgba(255,255,255,.15);color:rgba(250,246,238,.65);white-space:nowrap;transition:border-color .2s,color .2s}
 .sponsor-text:hover{border-color:var(--yellow);color:var(--yellow)}
 .sponsor-text.featured{border-color:rgba(204,34,0,.45);color:var(--white)}
@@ -310,7 +310,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
         <cite>David Sarno, Parent</cite>
       </div>
       <div style="text-align:center;margin-top:32px">
-        <img src="images/crew.png" alt="Maxled Crew" style="width:min(160px,40vw);opacity:.5;filter:drop-shadow(0 0 20px rgba(204,34,0,.3))">
+        <img src="images/crew.png" alt="Maxled Crew" style="width:min(160px,40vw);opacity:1;filter:drop-shadow(0 0 20px rgba(204,34,0,.3))">
       </div>
     </div>
   </div>
@@ -393,43 +393,36 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   </div>
 </section>
 
-<div class="register-section" id="register">
-  <div class="register-inner">
-    <div class="section-label">Sign Up</div>
-    <h2 class="section-title">Register to Compete</h2>
-    <div class="tally-wrap">
-      <iframe data-tally-src="https://tally.so/embed/gD4eB1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="2282" frameborder="0" marginheight="0" marginwidth="0" title="Queens Boro Bash 2026 - Competitor Registration"></iframe>
-      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
-    </div>
-  </div>
-</div>
+<div class="divider"></div>
 
 <div class="sponsors-wrap" id="sponsors">
 <div class="sponsors-section">
   <div class="sponsors-label">Proud Sponsors of the Queens Boro Bash 2026</div>
-  <div class="sponsors-label" style="font-size:10px;letter-spacing:3px;color:var(--red);margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:600">Confirmed Sponsors</div>
-  <div class="sponsor-logo-row" style="margin-bottom:32px">
-    <img src="images/sponsors/torro.png"    alt="Torro Skateboards"      class="sponsor-logo-img featured">
+  <div class="sponsor-logo-row" style="margin-bottom:40px">
+    <img src="images/sponsors/torro.png"         alt="Torro Skateboards"   class="sponsor-logo-img featured">
     <img src="images/sponsors/ny-state-of-mind.png" alt="NY State of Mind" class="sponsor-logo-img featured square">
-    <img src="images/sponsors/bones.png"    alt="Bones Bearings"          class="sponsor-logo-img featured square">
-    <img src="images/sponsors/substance.png" alt="Substance Skatepark"   class="sponsor-logo-img featured">
-    <img src="images/sponsors/dynasty.png" alt="Dynasty Breaking" class="sponsor-logo-img featured">
+    <img src="images/sponsors/bones.png"          alt="Bones Bearings"     class="sponsor-logo-img featured square">
+    <img src="images/sponsors/substance.png"      alt="Substance Skatepark" class="sponsor-logo-img featured">
+    <img src="images/sponsors/dynasty.png"        alt="Dynasty Breaking"   class="sponsor-logo-img featured">
   </div>
-  <div class="sponsors-label" style="font-size:10px;letter-spacing:3px;color:rgba(245,240,232,.4);margin-bottom:16px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">Community Partners</div>
+  <div class="sponsors-label" style="font-size:10px;letter-spacing:3px;color:rgba(245,240,232,.4);margin-bottom:20px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">Community Partners</div>
   <div class="sponsor-logo-row">
-    <img src="images/sponsors/ftc.png" alt="FTC" class="sponsor-logo-img">
-    <img src="images/sponsors/uncle-funkys.png" alt="Uncle Funky's"      class="sponsor-logo-img">
-    <img src="images/sponsors/pow.png"          alt="POW Skateboards"    class="sponsor-logo-img">
-    <img src="images/sponsors/instaramp.png"    alt="InstaRamp NY"       class="sponsor-logo-img">
+    <img src="images/sponsors/ftc.png"         alt="FTC"                class="sponsor-logo-img">
+    <img src="images/sponsors/uncle-funkys.png" alt="Uncle Funky's"     class="sponsor-logo-img">
+    <img src="images/sponsors/pow.png"          alt="POW Skateboards"   class="sponsor-logo-img">
+    <img src="images/sponsors/instaramp.png"    alt="InstaRamp NY"      class="sponsor-logo-img">
     <img src="images/sponsors/sideshow.png"     alt="Sideshow Skate Shop" class="sponsor-logo-img">
-    <img src="images/sponsors/lick.png"         alt="LICK Skateshop"     class="sponsor-logo-img">
-    <img src="images/sponsors/coalition.png"    alt="Skate Coalition"    class="sponsor-logo-img">
+    <img src="images/sponsors/lick.png"         alt="LICK Skateshop"    class="sponsor-logo-img">
+    <img src="images/sponsors/coalition.png"    alt="Skate Coalition"   class="sponsor-logo-img">
     <div class="sponsor-text" style="border-style:dashed;opacity:.4">+ More</div>
   </div>
   <div class="sponsor-cta-box">
     <div class="lbl">Become a Sponsor</div>
-    <p>Help us grow this event and support youth skateboarding in Queens. Sponsorship packages available at all levels.</p>
-    <a href="/cdn-cgi/l/email-protection#4f262129200f222e37232a2b36203a3b27612c2022" class="btn-outline" style="font-size:15px;padding:10px 28px">Get Sponsor Info</a>
+    <p>Help us grow this event and support youth skateboarding in Queens. Download our sponsorship deck to see partnership opportunities.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="/maxledyouth-sponsorship-deck_ALT.pdf" target="_blank" class="btn-primary" style="font-size:16px;padding:12px 32px">Download Sponsor Deck</a>
+      <a href="mailto:info@maxledyouth.com" class="btn-outline" style="font-size:15px;padding:12px 28px">Contact Max</a>
+    </div>
   </div>
 </div>
 </div>
@@ -464,6 +457,17 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   </div>
 </div>
 
+<div class="register-section" id="register">
+  <div class="register-inner">
+    <div class="section-label">Sign Up</div>
+    <h2 class="section-title">Register to Compete</h2>
+    <div class="tally-wrap">
+      <iframe data-tally-src="https://tally.so/embed/gD4eB1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="2282" frameborder="0" marginheight="0" marginwidth="0" title="Queens Boro Bash 2026 - Competitor Registration"></iframe>
+      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+    </div>
+  </div>
+</div>
+
 <footer>
   <img src="images/logo.png" alt="Maxled Youth" class="footer-logo">
   <div class="footer-tagline">Life Lessons Through Skateboarding</div>
@@ -471,9 +475,12 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <a href="#about">About</a>
     <a href="#contests">Contests</a>
     <a href="#prizes">Prizes</a>
-    <a href="#register">Register</a>
     <a href="#sponsors">Sponsors</a>
-    <a href="/cdn-cgi/l/email-protection#670e090108270a061f0b02031e0812130f4904080a">Contact</a>
+    <a href="#location">Location</a>
+    <a href="#register">Register</a>
+    <a href="https://www.instagram.com/maxledyouth" target="_blank">Instagram</a>
+    <a href="https://venmo.com/u/maxledyouth" target="_blank">Venmo</a>
+    <a href="mailto:info@maxledyouth.com">Contact</a>
   </div>
   <div class="footer-copy">&copy; 2026 Maxled Youth. Queens, New York.</div>
 </footer>

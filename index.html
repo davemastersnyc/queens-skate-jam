@@ -133,6 +133,10 @@ section{padding:80px 40px;max-width:1100px;margin:0 auto}
 /* REGISTER */
 .register-section{background:#f5f0e8;padding:80px 40px}
 .register-inner{max-width:700px;margin:0 auto}
+.register-tabs{display:flex;gap:0;margin-bottom:36px;border:2px solid var(--red)}
+.reg-tab{flex:1;font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:3px;padding:14px;background:transparent;color:#555;border:none;cursor:pointer;transition:background .2s,color .2s}
+.reg-tab.active{background:var(--red);color:#fff}
+.reg-tab:hover:not(.active){background:rgba(204,34,0,.08)}
 .tally-wrap{margin-top:8px}
 
 /* Register light theme overrides */
@@ -257,7 +261,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   </div>
   <div class="hero-ctas">
     <a href="#register" class="btn-primary">Register to Attend</a>
-    <a href="#about" class="btn-outline">Learn More</a>
+    <a href="#register-compete" class="btn-outline">Register to Compete</a>
   </div>
 </div>
 
@@ -474,11 +478,32 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 <div class="register-section" id="register">
   <div class="register-inner">
     <div class="section-label">Sign Up</div>
-    <h2 class="section-title">Register to Attend</h2>
-    <div class="tally-wrap">
-      <iframe data-tally-src="https://tally.so/embed/gD4eB1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="2282" frameborder="0" marginheight="0" marginwidth="0" title="Queens Boro Bash 2026 - Competitor Registration"></iframe>
-      <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+    <h2 class="section-title">Queens Boro Bash 2026</h2>
+    <div class="register-tabs">
+      <button class="reg-tab active" data-tab="attend">Register to Attend</button>
+      <button class="reg-tab" data-tab="compete">Register to Compete</button>
     </div>
+    <div class="tally-wrap" id="form-attend">
+      <iframe data-tally-src="https://tally.so/embed/pbWZYJ?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="790" frameborder="0" marginheight="0" marginwidth="0" title="Register To Attend - Free"></iframe>
+    </div>
+    <div class="tally-wrap" id="form-compete" style="display:none">
+      <iframe data-tally-src="https://tally.so/embed/gD4eB1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="2282" frameborder="0" marginheight="0" marginwidth="0" title="Queens Boro Bash 2026 - Competitor Registration"></iframe>
+    </div>
+    <script>
+      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+      function switchTab(tab){
+        document.querySelectorAll('.reg-tab').forEach(function(b){b.classList.toggle('active',b.dataset.tab===tab)});
+        document.getElementById('form-attend').style.display=tab==='attend'?'block':'none';
+        document.getElementById('form-compete').style.display=tab==='compete'?'block':'none';
+        if(typeof Tally!=='undefined')Tally.loadEmbeds();
+      }
+      document.querySelectorAll('.reg-tab').forEach(function(btn){
+        btn.addEventListener('click',function(){switchTab(btn.dataset.tab);});
+      });
+      function checkHash(){if(window.location.hash==='#register-compete')switchTab('compete');}
+      window.addEventListener('hashchange',checkHash);
+      window.addEventListener('load',checkHash);
+    </script>
   </div>
 </div>
 

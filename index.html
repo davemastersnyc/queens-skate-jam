@@ -64,9 +64,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title .line1{color:var(--white);display:block;-webkit-text-stroke:1px rgba(250,246,238,.3)}
 .hero-title .line2{color:var(--red);display:block;-webkit-text-stroke:2px var(--red);text-shadow:0 0 60px rgba(204,34,0,.4)}
 .hero-title .line3{color:var(--yellow);display:block;font-size:clamp(36px,6vw,72px);letter-spacing:10px;-webkit-text-stroke:1px rgba(255,208,0,.5)}
-.hero-meta{display:flex;margin:32px 0 40px;position:relative;border:1px solid rgba(255,255,255,.1)}
-.hero-meta-item{padding:14px 32px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);margin:32px 0 40px;position:relative;border:1px solid rgba(255,255,255,.1)}
+.hero-meta-item{padding:14px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
 .hero-meta-item:last-child{border-right:none}
+@media(max-width:600px){.hero-meta{grid-template-columns:repeat(2,1fr)}.hero-meta-item:nth-child(2){border-right:none}.hero-meta-item:nth-child(3){border-top:1px solid rgba(255,255,255,.1)}.hero-meta-item:nth-child(4){border-top:1px solid rgba(255,255,255,.1);border-right:none}}
 .hero-meta-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.8);display:block;margin-bottom:4px}
 .hero-meta-value{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;color:var(--white)}
 .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
@@ -144,11 +145,11 @@ section{padding:80px 40px;max-width:1100px;margin:0 auto}
 .sponsors-label{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:rgba(245,240,232,.75);margin-bottom:28px}
 .sponsor-logo-row{display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:center;align-items:center;margin-bottom:28px}
 .sponsor-logo-row.featured-row{gap:32px 56px;align-items:center}
-.sponsor-logo-img{height:78px;width:auto;max-width:220px;object-fit:contain;opacity:.85;transition:opacity .2s,filter .2s;filter:drop-shadow(0 0 6px rgba(255,255,255,.08))}
+.sponsor-logo-img{height:88px;width:auto;max-width:220px;object-fit:contain;opacity:.85;transition:opacity .2s,filter .2s;filter:drop-shadow(0 0 6px rgba(255,255,255,.08))}
 .sponsor-logo-img:hover{opacity:1;filter:drop-shadow(0 0 14px rgba(255,255,255,.25))}
-.sponsor-logo-img.featured{height:96px;max-width:250px;opacity:.95}
-.sponsor-logo-img.square{height:96px;width:96px}
-.sponsor-logo-img.premier{height:100px;max-width:280px;opacity:1}
+.sponsor-logo-img.featured{height:112px;max-width:250px;opacity:.95}
+.sponsor-logo-img.square{height:112px;width:112px}
+.sponsor-logo-img.premier{height:88px;max-width:260px;opacity:1}
 .sponsor-text{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;padding:10px 20px;border:1px solid rgba(255,255,255,.15);color:rgba(250,246,238,.65);white-space:nowrap;transition:border-color .2s,color .2s}
 .sponsor-text:hover{border-color:var(--yellow);color:var(--yellow)}
 .sponsor-text.featured{border-color:rgba(204,34,0,.45);color:var(--white)}
@@ -255,7 +256,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <div class="hero-meta-item"><span class="hero-meta-label">Admission</span><span class="hero-meta-value" style="color:var(--yellow)">Free</span></div>
   </div>
   <div class="hero-ctas">
-    <a href="#register" class="btn-primary">Register to Compete</a>
+    <a href="#register" class="btn-primary">Register to Attend</a>
     <a href="#about" class="btn-outline">Learn More</a>
   </div>
 </div>
@@ -267,7 +268,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <span class="ticker-item">Adaptive Division</span>
     <span class="ticker-item">Free Food and Drinks</span>
     <span class="ticker-item">Prizes and Gear</span>
-    <span class="ticker-item">Skate Shoes and Footwear</span>
+    <span class="ticker-item">Footwear and Apparel</span>
     <span class="ticker-item">June 13, 2026</span>
     <span class="ticker-item">Maloof Skatepark, Queens NY</span>
     <span class="ticker-item">Life Lessons Through Skateboarding</span>
@@ -276,7 +277,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <span class="ticker-item">Adaptive Division</span>
     <span class="ticker-item">Free Food and Drinks</span>
     <span class="ticker-item">Prizes and Gear</span>
-    <span class="ticker-item">Skate Shoes and Footwear</span>
+    <span class="ticker-item">Footwear and Apparel</span>
     <span class="ticker-item">June 13, 2026</span>
     <span class="ticker-item">Maloof Skatepark, Queens NY</span>
     <span class="ticker-item">Life Lessons Through Skateboarding</span>
@@ -332,7 +333,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
       <div class="prize-item"><span class="prize-icon">&#128278;</span><div class="prize-name">Stickers</div><div class="prize-desc">Brand Packs</div></div>
       <div class="prize-item"><span class="prize-icon">🕺</span><div class="prize-name">Breakdancing</div><div class="prize-desc">Live Performance</div></div>
     </div>
-    <div class="free-banner"><p>Free Food and Drinks All Day &nbsp;//&nbsp; Free Admission &nbsp;//&nbsp; All Ages Welcome</p></div>
+    <div class="free-banner"><p>Free Food and Drinks &nbsp;//&nbsp; Free Admission &nbsp;//&nbsp; All Ages Welcome</p></div>
   </div>
 </div>
 
@@ -402,10 +403,10 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 <div class="sponsors-section">
   <div class="sponsors-label">Proud Sponsors of the Queens Boro Bash 2026</div>
   <div class="sponsor-logo-row featured-row" style="margin-bottom:40px">
-    <img src="images/sponsors/torro.png"           alt="Torro Skateboards"   class="sponsor-logo-img premier">
-    <img src="images/sponsors/ny-state-of-mind.png" alt="NY State of Mind"  class="sponsor-logo-img featured square">
+    <img src="images/sponsors/torro.png"           alt="Torro Skateboards"   class="sponsor-logo-img featured">
+    <img src="images/sponsors/ny-state-of-mind.png" alt="NY State of Mind"  class="sponsor-logo-img featured square" style="height:130px;width:130px">
     <img src="images/sponsors/bones.png"            alt="Bones Bearings"    class="sponsor-logo-img featured square">
-    <img src="images/sponsors/substance.png"        alt="Substance Skatepark" class="sponsor-logo-img featured">
+    <img src="images/sponsors/substance.png"        alt="Substance Skatepark" class="sponsor-logo-img featured" style="height:130px">
   </div>
   <div class="sponsor-logo-row featured-row" style="margin-bottom:48px">
     <img src="images/sponsors/dynasty.png"        alt="Dynasty Breaking"  class="sponsor-logo-img featured">
@@ -413,14 +414,17 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <img src="images/sponsors/go-sports.png"      alt="Go Sports"         class="sponsor-logo-img featured">
     <img src="images/sponsors/arizona.png"        alt="Arizona Iced Tea"  class="sponsor-logo-img featured">
     <img src="images/sponsors/fuccs.png"          alt="FUCCS Sunglasses"  class="sponsor-logo-img featured" style="max-width:160px">
+    <img src="images/sponsors/travrocone.png"     alt="Travrocone"        class="sponsor-logo-img featured">
+    <img src="images/sponsors/opus.png"           alt="Opus Footwear"     class="sponsor-logo-img featured" style="height:90px">
+    <img src="images/sponsors/benfaremo.png"      alt="Benfaremo Lemon Ice" class="sponsor-logo-img featured">
   </div>
   <div class="sponsors-label" style="font-size:16px;letter-spacing:4px;color:rgba(245,240,232,.75);margin-bottom:24px;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;font-weight:700">Community Partners</div>
   <div class="sponsor-logo-row">
     <img src="images/sponsors/ftc.png"         alt="FTC"                class="sponsor-logo-img">
-    <img src="images/sponsors/uncle-funkys.png" alt="Uncle Funky's"     class="sponsor-logo-img">
+    <img src="images/sponsors/uncle-funkys.png" alt="Uncle Funky's"     class="sponsor-logo-img" style="height:106px">
     <img src="images/sponsors/pow.png"          alt="POW Skateboards"   class="sponsor-logo-img">
     <img src="images/sponsors/instaramp.png"    alt="InstaRamp NY"      class="sponsor-logo-img">
-    <img src="images/sponsors/sideshow.png"     alt="Sideshow Skate Shop" class="sponsor-logo-img">
+    <img src="images/sponsors/sideshow.png"     alt="Sideshow Skate Shop" class="sponsor-logo-img" style="height:106px">
     <img src="images/sponsors/lick.png"         alt="LICK Skateshop"    class="sponsor-logo-img">
     <img src="images/sponsors/coalition.png"    alt="Skate Coalition"   class="sponsor-logo-img">
     <img src="images/sponsors/fair-weather.png" alt="Fair Weather"      class="sponsor-logo-img">
@@ -470,7 +474,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 <div class="register-section" id="register">
   <div class="register-inner">
     <div class="section-label">Sign Up</div>
-    <h2 class="section-title">Register to Compete</h2>
+    <h2 class="section-title">Register to Attend</h2>
     <div class="tally-wrap">
       <iframe data-tally-src="https://tally.so/embed/gD4eB1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="2282" frameborder="0" marginheight="0" marginwidth="0" title="Queens Boro Bash 2026 - Competitor Registration"></iframe>
       <script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>

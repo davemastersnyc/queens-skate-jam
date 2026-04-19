@@ -176,6 +176,30 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 .footer-links a:hover{color:var(--yellow)}
 .footer-copy{font-size:11px;color:rgba(245,240,232,.2)}
 
+/* MTA Board */
+.mta-wrap{background:#000;padding:0}
+.mta-hdr{background:#2360A5;padding:12px 40px;display:flex;align-items:center;gap:16px}
+.mta-m{width:28px;height:28px;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:16px;color:#2360A5;flex-shrink:0}
+.mta-hdr-title{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;color:#fff;text-transform:uppercase;flex:1}
+.mta-hdr-right{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px}
+.mta-board{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;max-width:1100px;margin:0 auto;padding:0 40px 32px;background:#000}
+.mta-cols{display:grid;grid-template-columns:72px 1fr 190px 210px;padding:10px 0 8px;border-bottom:2px solid #222}
+.mta-cols span{font-size:10px;letter-spacing:2px;color:#555;text-transform:uppercase;font-weight:700}
+.mta-row{display:grid;grid-template-columns:72px 1fr 190px 210px;align-items:center;border-bottom:1px solid #1a1a1a;min-height:64px}
+.mta-row.mta-main{min-height:86px}
+.mta-row:last-child{border-bottom:none}
+.mta-cell{padding:0 16px 0 0;color:#444;font-size:13px;letter-spacing:.5px}
+.mta-main .mta-cell{color:#fff;font-size:19px;font-weight:700}
+.train-7{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#6e2882;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:20px;color:#fff;line-height:1}
+.mta-main .train-7{width:46px;height:46px;font-size:26px}
+.mta-green{color:#00933C !important}
+.mta-amber{color:#F5A623;font-weight:700}
+.mta-main .mta-amber{font-size:22px}
+#mta-countdown{display:inline-block}
+.mta-hero-wrap{width:100%;margin:32px 0 40px;text-align:left}
+.mta-hero-wrap .mta-hdr{padding:10px 0}
+.mta-hero-wrap .mta-board{padding:0 0 16px}
+
 @media(max-width:768px){
   nav{padding:10px 20px}
   .nav-links{display:none}
@@ -189,6 +213,16 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   .location-wrap{padding:0 20px 60px}
   .about-stats{flex-wrap:wrap}
   footer{padding:40px 20px}
+  .mta-hdr{padding:10px 20px}
+  .mta-board{padding:0 20px 24px}
+  .mta-cols{grid-template-columns:48px 1fr 130px}
+  .mta-cols span:nth-child(3){display:none}
+  .mta-row,.mta-row.mta-main{grid-template-columns:48px 1fr 130px}
+  .mta-cell:nth-child(3){display:none}
+  .mta-main .mta-cell{font-size:14px;padding:0 10px 0 0}
+  .mta-cell{font-size:11px;letter-spacing:0}
+  .mta-main .train-7{width:34px;height:34px;font-size:18px}
+  .mta-main .mta-amber{font-size:16px}
 }
 </style>
 </head>
@@ -253,38 +287,42 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <span class="line2">Boro</span>
     <span class="line3">Bash 2026</span>
   </h1>
-  <div class="hero-meta">
-    <div class="hero-meta-item"><span class="hero-meta-label">Date</span><span class="hero-meta-value">June 13, 2026</span></div>
-    <div class="hero-meta-item"><span class="hero-meta-label">Venue</span><span class="hero-meta-value">Maloof Skatepark</span></div>
-    <div class="hero-meta-item"><span class="hero-meta-label">Location</span><span class="hero-meta-value">Flushing Meadows, Queens</span></div>
-    <div class="hero-meta-item"><span class="hero-meta-label">Admission</span><span class="hero-meta-value" style="color:var(--yellow)">Free</span></div>
+  <div class="mta-hero-wrap">
+    <div class="mta-hdr">
+      <span class="mta-m">M</span>
+      <span class="mta-hdr-title">New York City Transit</span>
+      <span class="mta-hdr-right">Departures &middot; Queensboro Bash 2026</span>
+    </div>
+    <div class="mta-board">
+      <div class="mta-cols">
+        <span>Route</span>
+        <span>Destination</span>
+        <span>Status</span>
+        <span>Departs In</span>
+      </div>
+      <div class="mta-row mta-main">
+        <div class="mta-cell"><span class="train-7">7</span></div>
+        <div class="mta-cell">FLUSHING MEADOWS</div>
+        <div class="mta-cell mta-green">NOW BOARDING</div>
+        <div class="mta-cell mta-amber"><span id="mta-countdown">55D 00H 00M</span></div>
+      </div>
+      <div class="mta-row">
+        <div class="mta-cell"></div>
+        <div class="mta-cell">MALOOF SKATEPARK</div>
+        <div class="mta-cell">ON TRACK</div>
+        <div class="mta-cell">JUN 13 2026</div>
+      </div>
+      <div class="mta-row">
+        <div class="mta-cell"></div>
+        <div class="mta-cell">FREE ENTRY &middot; ALL AGES</div>
+        <div class="mta-cell">SHOW UP</div>
+        <div class="mta-cell">QUEENS NY</div>
+      </div>
+    </div>
   </div>
   <div class="hero-ctas">
     <a href="#register" class="btn-primary">Register to Attend</a>
     <a href="#register-compete" class="btn-outline">Register to Compete</a>
-  </div>
-</div>
-
-<div class="ticker-wrap">
-  <div class="ticker-track">
-    <span class="ticker-item">Free Community Event</span>
-    <span class="ticker-item">All Ages Welcome</span>
-    <span class="ticker-item">Adaptive Division</span>
-    <span class="ticker-item">Free Food and Drinks</span>
-    <span class="ticker-item">Prizes and Gear</span>
-    <span class="ticker-item">Footwear and Apparel</span>
-    <span class="ticker-item">June 13, 2026</span>
-    <span class="ticker-item">Maloof Skatepark, Queens NY</span>
-    <span class="ticker-item">Life Lessons Through Skateboarding</span>
-    <span class="ticker-item">Free Community Event</span>
-    <span class="ticker-item">All Ages Welcome</span>
-    <span class="ticker-item">Adaptive Division</span>
-    <span class="ticker-item">Free Food and Drinks</span>
-    <span class="ticker-item">Prizes and Gear</span>
-    <span class="ticker-item">Footwear and Apparel</span>
-    <span class="ticker-item">June 13, 2026</span>
-    <span class="ticker-item">Maloof Skatepark, Queens NY</span>
-    <span class="ticker-item">Life Lessons Through Skateboarding</span>
   </div>
 </div>
 
@@ -532,4 +570,24 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('cli
+  a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
+});
+(function(){
+  var el=document.getElementById('mta-countdown');
+  if(!el)return;
+  var evt=new Date('2026-06-13T09:00:00-04:00');
+  function pad(n){return n<10?'0'+n:String(n);}
+  function update(){
+    var d=evt-new Date();
+    if(d<=0){el.textContent='HAPPENING NOW';return;}
+    var dy=Math.floor(d/86400000);
+    var h=Math.floor(d%86400000/3600000);
+    var m=Math.floor(d%3600000/60000);
+    el.textContent=dy+'D '+pad(h)+'H '+pad(m)+'M';
+  }
+  update();
+  setInterval(update,30000);
+})();
+</script>
+</body>
+</html>

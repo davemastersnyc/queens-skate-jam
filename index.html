@@ -31,6 +31,7 @@
 <meta name="twitter:image" content="https://queensborobash.com/og-image.png">
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -188,7 +189,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 .mta-row{display:grid;grid-template-columns:72px 1fr 190px 210px;align-items:center;border-bottom:1px solid #1a1a1a;min-height:64px}
 .mta-row.mta-main{min-height:86px}
 .mta-row:last-child{border-bottom:none}
-.mta-cell{padding:0 16px 0 0;color:#444;font-size:13px;letter-spacing:.5px}
+.mta-cell{padding:0 16px 0 0;color:#9a9a9a;font-size:13px;letter-spacing:.5px}
 .mta-main .mta-cell{color:#fff;font-size:19px;font-weight:700}
 .train-7{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#6e2882;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:900;font-size:20px;color:#fff;line-height:1}
 .mta-main .train-7{width:46px;height:46px;font-size:26px}
@@ -224,6 +225,45 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   .mta-main .train-7{width:34px;height:34px;font-size:18px}
   .mta-main .mta-amber{font-size:16px}
 }
+.session-section{padding:80px 40px;max-width:1100px;margin:0 auto}
+.session-desc{color:#9a9a9a;font-size:17px;margin:12px 0 48px;max-width:560px;line-height:1.6}
+.session-layout{display:flex;gap:56px;align-items:flex-start;flex-wrap:wrap}
+.session-card{width:480px;height:480px;background:#080808;border:1px solid #1a1a1a;display:flex;flex-direction:column;position:relative;overflow:hidden;flex-shrink:0}
+.sc-bg{position:absolute;right:0;bottom:0;height:72%;width:auto;object-fit:contain;z-index:0;opacity:0.55}
+.sc-overlay{position:absolute;inset:0;background:linear-gradient(145deg,rgba(8,8,8,0.88) 35%,rgba(8,8,8,0.2) 100%);z-index:1}
+.sc-topbar{background:rgba(204,34,0,0.95);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.sc-logo{height:44px;width:auto;filter:drop-shadow(0 1px 6px rgba(0,0,0,0.8))}
+.sc-brand-block{display:flex;flex-direction:column;align-items:flex-end}
+.sc-brand{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:3px;color:#fff;line-height:1}
+.sc-year{font-family:'Bebas Neue',sans-serif;font-size:12px;color:rgba(255,255,255,.7);line-height:1;margin-top:3px}
+.sc-body{flex:1;padding:24px 28px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.sc-tagline{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:4px;color:#666;text-transform:uppercase;margin-bottom:16px}
+.sc-row{padding:12px 0}
+.sc-lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;color:#888;margin-bottom:4px;text-transform:uppercase}
+.sc-val{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--white);line-height:1;letter-spacing:1px}
+.sc-handle{font-family:'Barlow Condensed',sans-serif;font-size:13px;color:var(--red);margin-top:3px;letter-spacing:.5px}
+.sc-fuel-inner{display:flex;align-items:center;gap:14px}
+.sc-fuel-img{height:36px;width:auto;max-width:70px;object-fit:contain}
+.sc-div{height:1px;background:rgba(255,255,255,0.08)}
+.sc-footer{background:rgba(0,0,0,0.75);border-top:1px solid rgba(255,255,255,0.06);padding:12px 20px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+.sc-footer-evt{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;color:#888;text-transform:uppercase}
+.sc-footer-tag{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:1px;color:var(--yellow)}
+.session-controls{flex:1;min-width:260px;display:flex;flex-direction:column;gap:16px;padding-top:4px}
+.btn-roll{background:var(--red);color:#fff;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;border:2px solid rgba(255,255,255,0.15);padding:18px 32px;cursor:pointer;width:100%;transition:background .15s,box-shadow .15s;box-shadow:0 4px 24px rgba(204,34,0,0.5)}
+.btn-roll:hover{background:var(--red-bright);box-shadow:0 6px 32px rgba(255,42,0,0.65)}
+.caption-box{display:flex;flex-direction:column;gap:8px}
+.caption-lbl{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;color:#555;text-transform:uppercase}
+.caption-text{width:100%;background:#111;border:1px solid #1a1a1a;color:#8a8a8a;font-family:'Barlow',sans-serif;font-size:13px;line-height:1.6;padding:14px;resize:none}
+.btn-copy{background:transparent;border:1px solid #333;color:#8a8a8a;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:1px;padding:10px 20px;cursor:pointer;width:100%;transition:border-color .15s,color .15s;text-transform:uppercase}
+.btn-copy:hover{border-color:#666;color:#fff}
+.btn-dl{background:transparent;border:2px solid var(--yellow);color:var(--yellow);font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:2px;padding:16px 32px;cursor:pointer;width:100%;transition:background .15s}
+.btn-dl:hover{background:rgba(255,208,0,.08)}
+@media(max-width:768px){
+  .session-section{padding:56px 20px}
+  .session-card{width:100%;height:auto;min-height:380px}
+  .sc-val{font-size:30px}
+  .session-controls{width:100%}
+}
 </style>
 </head>
 <body>
@@ -236,6 +276,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#contests">Contests</a></li>
+    <li><a href="#session">Session Card</a></li>
     <li><a href="#prizes">Prizes</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
     <li><a href="#location">Location</a></li>
@@ -357,6 +398,63 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
       <div style="text-align:center;margin-top:32px">
         <img src="images/crew.png" alt="Maxled Crew" style="width:min(380px,75vw);opacity:1;filter:drop-shadow(0 0 30px rgba(204,34,0,.35))">
       </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="session" class="session-section">
+  <div class="section-label">Generate Your Card</div>
+  <h2 class="section-title">Session Card</h2>
+  <p class="session-desc">Roll your Queens session. Download and post to IG -- tag your sponsors, your crew, your spot.</p>
+  <div class="session-layout">
+    <div class="session-card" id="session-card">
+      <img src="images/crew.png" class="sc-bg" alt="">
+      <div class="sc-overlay"></div>
+      <div class="sc-topbar">
+        <img src="images/logo.png" class="sc-logo" alt="Maxled Youth">
+        <div class="sc-brand-block">
+          <span class="sc-brand">QUEENS BORO BASH</span>
+          <span class="sc-year">2026</span>
+        </div>
+      </div>
+      <div class="sc-body">
+        <div class="sc-tagline">Your Session Card</div>
+        <div class="sc-row">
+          <div class="sc-lbl">Trick</div>
+          <div class="sc-val" id="sc-trick"></div>
+        </div>
+        <div class="sc-div"></div>
+        <div class="sc-row">
+          <div class="sc-lbl">Spot</div>
+          <div class="sc-val" id="sc-spot"></div>
+        </div>
+        <div class="sc-div"></div>
+        <div class="sc-row">
+          <div class="sc-lbl" id="sc-sponsor-cat">Sponsor</div>
+          <div class="sc-fuel-inner">
+            <img id="sc-fuel-img" src="" class="sc-fuel-img" alt="">
+            <div>
+              <div class="sc-val" id="sc-fuel"></div>
+              <div class="sc-handle" id="sc-handle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sc-footer">
+        <span class="sc-footer-evt">Jun 13 &middot; Maloof Skatepark &middot; Queens NY</span>
+        <span class="sc-footer-tag">#QueensboroBash2026</span>
+      </div>
+    </div>
+    <div class="session-controls">
+      <button class="btn-roll" onclick="rollSession()">Roll My Session</button>
+      <div class="caption-box" id="sc-caption-box" style="display:none">
+        <div class="caption-lbl">Caption for IG</div>
+        <textarea class="caption-text" id="sc-caption" readonly rows="9"></textarea>
+        <button class="btn-copy" id="sc-copy-btn" onclick="copyCaption()">Copy Caption</button>
+      </div>
+      <button class="btn-dl" id="sc-dl-btn" style="display:none" onclick="downloadCard()">Download Card (1080 x 1080)</button>
     </div>
   </div>
 </section>
@@ -557,6 +655,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   <div class="footer-links">
     <a href="#about">About</a>
     <a href="#contests">Contests</a>
+    <a href="#session">Session Card</a>
     <a href="#prizes">Prizes</a>
     <a href="#sponsors">Sponsors</a>
     <a href="#location">Location</a>
@@ -569,6 +668,79 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+  var TRICKS=['Backside Lipslide','Kickflip to Fakie','Frontside 5-0 Grind','Switch Heelflip','Bluntslide','Nosegrind','Crooked Grind','Tre Flip','Nollie Backside Flip','Tailslide','Frontside Boardslide','Smith Grind','Hardflip','360 Flip','Ollie North','Varial Flip','Backside 180','Nosebluntslide','Heelflip','Pivot Fakie','Switch Ollie','Cab Flip'];
+  // ---- ADD / EDIT SPOTS HERE ----
+  var SPOTS=[
+    'Flushing Meadows Banks',
+    'Maloof Skatepark',
+    'Roosevelt Ave Banks',
+    'Astoria Park Steps',
+    'Jamaica Center Plaza',
+    'LIC Blocks',
+    'Queensbridge Houses',
+    'Far Rockaway Banks',
+    'Rockaway Beach',
+    'Jackson Heights Ledges',
+    'Corona Park Manny Pad',
+    'College Point Banks',
+    'Willets Point Wall',
+    'Kew Gardens Rail',
+    'Forest Hills Steps',
+  ];
+  // --------------------------------
+  var SPONSORS=[
+    {cat:'BOARD',name:'Torro Skateboards',handle:'@torroskateboards',img:'images/sponsors/torro.png'},
+    {cat:'BOARD',name:'Fairweather',handle:'@fairweatherskateboards',img:'images/sponsors/fair-weather.png'},
+    {cat:'BOARD',name:'Hazel Skateboards',handle:'@hazelskateboards',img:'images/sponsors/hazel.png'},
+    {cat:'SPEED',name:'Bones Bearings',handle:'@bonesbearings',img:'images/sponsors/bones.png'},
+    {cat:'GEAR',name:"Uncle Funky's",handle:'@unclefunkysboards',img:'images/sponsors/uncle-funkys.png'},
+    {cat:'FUEL',name:'Arizona Iced Tea',handle:'@drinkarizona',img:'images/sponsors/arizona.png'},
+    {cat:'FUEL',name:'Benfaremo Lemon Ice',handle:'@lemonicekingofcorona',img:'images/sponsors/benfaremo.png'}
+  ];
+  function pick(a){return a[Math.floor(Math.random()*a.length)];}
+  function fillCard(){
+    var trick=pick(TRICKS),spot=pick(SPOTS),sp=pick(SPONSORS);
+    document.getElementById('sc-trick').textContent=trick;
+    document.getElementById('sc-spot').textContent=spot;
+    document.getElementById('sc-sponsor-cat').textContent=sp.cat;
+    document.getElementById('sc-fuel').textContent=sp.name;
+    document.getElementById('sc-handle').textContent=sp.handle;
+    var fi=document.getElementById('sc-fuel-img');
+    fi.src=sp.img;fi.style.filter=sp.invert?'invert(1)':'';
+    var cap='My 2026 Queens Boro Bash session:\n\nTrick: '+trick+'\nSpot: '+spot+'\n'+sp.cat+': '+sp.name+' '+sp.handle+'\n\nJune 13 @ Maloof Skatepark, Flushing Meadows\nFree entry. All ages. See you there.\n\n@maxledyouth #QueensboroBash2026 #SkateQueens #MaloofSkatepark #FlushingMeadows #QueensNY #skateboarding\nqueensborobash.com';
+    document.getElementById('sc-caption').value=cap;
+    return {trick:trick,spot:spot,sponsor:sp};
+  }
+  var dlBtn=document.getElementById('sc-dl-btn');
+  dlBtn.textContent=navigator.share?'Share Card':'Download Card (1080x1080)';
+  document.getElementById('sc-caption-box').style.display='flex';
+  dlBtn.style.display='block';
+  fillCard();
+  window.rollSession=function(){fillCard();};
+  window.copyCaption=function(){
+    var t=document.getElementById('sc-caption').value;
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(function(){var b=document.getElementById('sc-copy-btn');b.textContent='Copied!';setTimeout(function(){b.textContent='Copy Caption';},2000);});}
+  };
+  window.downloadCard=function(){
+    var card=document.getElementById('session-card');
+    var caption=document.getElementById('sc-caption').value;
+    html2canvas(card,{scale:2.25,backgroundColor:'#080808',useCORS:true,allowTaint:true,logging:false}).then(function(canvas){
+      canvas.toBlob(function(blob){
+        var file=new File([blob],'qbb-session.png',{type:'image/png'});
+        if(navigator.canShare&&navigator.canShare({files:[file]})){
+          navigator.share({files:[file],text:caption}).catch(function(){});
+        } else {
+          var a=document.createElement('a');
+          a.download='qbb-session-'+Date.now()+'.png';
+          a.href=URL.createObjectURL(blob);
+          a.click();
+          URL.revokeObjectURL(a.href);
+        }
+      },'image/png');
+    });
+  };
+})();
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});
 });

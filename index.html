@@ -64,6 +64,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-title .line1{color:var(--white);display:block;-webkit-text-stroke:1px rgba(250,246,238,.3)}
 .hero-title .line2{color:var(--red);display:block;-webkit-text-stroke:2px var(--red);text-shadow:0 0 60px rgba(204,34,0,.4)}
 .hero-title .line3{color:var(--yellow);display:block;font-size:clamp(36px,6vw,72px);letter-spacing:10px;-webkit-text-stroke:1px rgba(255,208,0,.5)}
+.hero-subheading{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3.6vw,40px);letter-spacing:clamp(2px,.6vw,6px);color:var(--white);margin-top:18px;text-align:center;line-height:1.15;position:relative;text-shadow:0 0 30px rgba(0,0,0,.4)}
+.hero-subheading .dot{color:var(--red);margin:0 .4em}
+.hero-subheading .time{color:var(--yellow)}
 .hero-meta{display:grid;grid-template-columns:repeat(4,1fr);margin:32px 0 40px;position:relative;border:1px solid rgba(255,255,255,.1)}
 .hero-meta-item{padding:14px 24px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
 .hero-meta-item:last-child{border-right:none}
@@ -161,6 +164,16 @@ section{padding:80px 40px;max-width:1100px;margin:0 auto}
 .sponsor-cta-box .lbl{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;display:block}
 .sponsor-cta-box p{font-size:14px;color:rgba(245,240,232,.55);line-height:1.7;margin-bottom:16px}
 
+.donate-section{background:var(--gray);padding:64px 40px}
+.donate-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center}
+.donate-text .section-label{color:var(--yellow)}
+.donate-text .section-title{font-size:clamp(36px,5vw,56px);margin-bottom:18px}
+.donate-text p{font-size:16px;line-height:1.75;color:rgba(245,240,232,.75);margin-bottom:22px}
+.donate-qr{background:#fff;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;justify-self:end;box-shadow:0 0 40px rgba(204,34,0,.25)}
+.donate-qr img{width:240px;height:240px;display:block}
+.donate-qr-label{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--black);text-align:center}
+@media(max-width:700px){.donate-inner{grid-template-columns:1fr;text-align:center}.donate-qr{justify-self:center}}
+
 .location-wrap{padding:0 40px 80px;max-width:1100px;margin:0 auto}
 .location-block{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;background:var(--gray);padding:48px}
 .location-title{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:.95;color:var(--white);margin-bottom:16px}
@@ -196,8 +209,9 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 .mta-amber{color:#F5A623;font-weight:700}
 .mta-main .mta-amber{font-size:22px}
 #mta-countdown{display:inline-block}
-.mta-hero-wrap{width:100%;margin:32px 0 40px;text-align:left}
-.mta-hero-wrap .mta-hdr{padding:10px 0}
+.mta-hero-wrap{width:100%;margin:32px 0 40px;text-align:left;position:relative}
+.mta-hero-wrap .mta-hdr{padding:14px 40px;width:100vw;position:relative;left:50%;transform:translateX(-50%);margin-bottom:28px;justify-content:flex-start}
+.mta-hero-wrap .mta-hdr-inner{max-width:1100px;width:100%;margin:0 auto;display:flex;align-items:center;gap:16px}
 .mta-hero-wrap .mta-board{padding:0 0 16px}
 
 @media(max-width:768px){
@@ -238,6 +252,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <li><a href="#contests">Contests</a></li>
     <li><a href="#prizes">Prizes</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#donate">Donate</a></li>
     <li><a href="#location">Location</a></li>
   </ul>
   <a href="#register" class="nav-cta">Register Now</a>
@@ -287,11 +302,14 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <span class="line2">Boro</span>
     <span class="line3">Bash 2026</span>
   </h1>
+  <div class="hero-subheading">SATURDAY <span class="dot">&middot;</span> JUNE 13, 2026 <span class="dot">&middot;</span> <span class="time">12PM&ndash;6PM</span></div>
   <div class="mta-hero-wrap">
     <div class="mta-hdr">
-      <span class="mta-m">M</span>
-      <span class="mta-hdr-title">New York City Transit</span>
-      <span class="mta-hdr-right">Departures &middot; Queensboro Bash 2026</span>
+      <div class="mta-hdr-inner">
+        <span class="mta-m">M</span>
+        <span class="mta-hdr-title">New York City Transit</span>
+        <span class="mta-hdr-right">Departures &middot; Queensboro Bash 2026</span>
+      </div>
     </div>
     <div class="mta-board">
       <div class="mta-cols">
@@ -490,6 +508,24 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 
 <div class="divider"></div>
 
+<div class="donate-section" id="donate">
+  <div class="donate-inner">
+    <div class="donate-text">
+      <div class="section-label">Support</div>
+      <h2 class="section-title">Fuel the Bash</h2>
+      <p>Maxled Youth runs on community support. Every dollar helps us keep this event free, stock the prize tables, and fund our after-school skate programs across Queens.</p>
+      <p>Scan the QR with your phone camera, or tap below to chip in.</p>
+      <a href="https://venmo.com/u/maxledyouth" target="_blank" class="btn-primary" style="font-size:18px">Donate via Venmo</a>
+    </div>
+    <div class="donate-qr">
+      <img src="images/qr-donate.png" alt="Donate to Maxled Youth — scan to give">
+      <div class="donate-qr-label">Scan to Donate</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
 <div class="location-wrap" id="location">
   <div style="padding-top:80px">
     <div class="section-label">Where</div>
@@ -558,6 +594,7 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <a href="#contests">Contests</a>
     <a href="#prizes">Prizes</a>
     <a href="#sponsors">Sponsors</a>
+    <a href="#donate">Donate</a>
     <a href="#location">Location</a>
     <a href="#register">Register</a>
     <a href="https://www.instagram.com/maxledyouth" target="_blank">Instagram</a>

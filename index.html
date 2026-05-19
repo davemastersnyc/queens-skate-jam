@@ -164,6 +164,83 @@ section{padding:80px 40px;max-width:1100px;margin:0 auto}
 .sponsor-cta-box .lbl{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:4px;text-transform:uppercase;color:var(--yellow);margin-bottom:12px;display:block}
 .sponsor-cta-box p{font-size:14px;color:rgba(245,240,232,.55);line-height:1.7;margin-bottom:16px}
 
+/* LIMITED EDITION SHIRT SECTION */
+.shirt-section{position:relative;background:linear-gradient(180deg,#0a0a0a 0%,#141414 50%,#0a0a0a 100%);padding:90px 40px;overflow:hidden}
+.shirt-bg-grid{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 50%,rgba(204,34,0,.18) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(255,208,0,.08) 0%,transparent 60%),repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,255,255,.018) 60px,rgba(255,255,255,.018) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,.018) 60px,rgba(255,255,255,.018) 61px);pointer-events:none}
+.shirt-inner{position:relative;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.shirt-copy{position:relative;z-index:2}
+.shirt-badge{display:inline-flex;align-items:center;gap:8px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--yellow);padding:7px 14px;border:1px solid rgba(255,208,0,.4);background:rgba(255,208,0,.05);margin-bottom:18px}
+.shirt-badge-dot{width:8px;height:8px;border-radius:50%;background:var(--red-bright);box-shadow:0 0 12px var(--red-bright);animation:shirtPulse 1.6s ease-in-out infinite}
+@keyframes shirtPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.shirt-title{margin-bottom:14px;line-height:.92}
+.shirt-title-amt{color:var(--yellow);font-style:italic;text-shadow:0 0 30px rgba(255,208,0,.4)}
+.shirt-collab{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--white);margin-bottom:18px;opacity:.9}
+.shirt-collab .shirt-x{color:var(--red);margin:0 6px}
+.shirt-pitch{font-size:16px;line-height:1.75;color:rgba(245,240,232,.78);margin-bottom:24px;max-width:480px}
+.shirt-meta-strip{display:flex;border:1px solid rgba(255,255,255,.08);margin-bottom:28px;max-width:480px}
+.shirt-meta{flex:1;padding:14px 18px;border-right:1px solid rgba(255,255,255,.08);text-align:center}
+.shirt-meta:last-child{border-right:none}
+.shirt-meta-num{display:block;font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--yellow);line-height:1}
+.shirt-meta-lbl{display:block;font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.5);margin-top:4px}
+.shirt-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.shirt-btn-primary{font-size:18px;padding:16px 36px;box-shadow:0 0 32px rgba(204,34,0,.4)}
+.shirt-btn-flip{cursor:pointer;font-family:'Bebas Neue',sans-serif}
+.shirt-fineprint{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)}
+
+.shirt-stage{position:relative;perspective:1800px;perspective-origin:50% 50%;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:620px;padding:24px 0}
+.shirt-stage-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 50% 50%,rgba(204,34,0,.3) 0%,transparent 65%);filter:blur(10px);animation:shirtGlow 4s ease-in-out infinite;pointer-events:none}
+@keyframes shirtGlow{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+.shirt-stage-floor{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);width:380px;height:28px;background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(0,0,0,.7) 0%,transparent 70%);filter:blur(8px);z-index:0;animation:shirtFloor 4s ease-in-out infinite}
+@keyframes shirtFloor{0%,100%{opacity:.75;width:380px}50%{opacity:.45;width:320px}}
+.shirt-card{position:relative;width:min(500px,86vw);aspect-ratio:1/1;transform-style:preserve-3d;cursor:pointer;animation:shirtFlip 8s cubic-bezier(.6,.05,.4,.95) infinite,shirtFloat 4s ease-in-out infinite;z-index:1;outline:none;transition:filter .25s}
+.shirt-card:focus-visible{filter:drop-shadow(0 0 16px var(--yellow))}
+.shirt-card:hover{animation-play-state:paused}
+.shirt-card.manual{animation:shirtFloat 4s ease-in-out infinite;transition:transform .9s cubic-bezier(.6,.05,.4,.95)}
+.shirt-card.manual.flipped{transform:rotateY(180deg)}
+@keyframes shirtFlip{
+  0%,40%{transform:rotateY(0deg)}
+  50%,90%{transform:rotateY(180deg)}
+  100%{transform:rotateY(360deg)}
+}
+@keyframes shirtFloat{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.shirt-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;align-items:center;justify-content:center;background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 24px rgba(204,34,0,.25),inset 0 0 0 1px rgba(0,0,0,.06)}
+.shirt-face::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red) 0%,var(--yellow) 50%,var(--red) 100%);z-index:2}
+.shirt-face::after{content:'';position:absolute;inset:8px;border:1px dashed rgba(0,0,0,.08);border-radius:4px;pointer-events:none;z-index:1}
+.shirt-face img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1}
+.shirt-face-back{transform:rotateY(180deg)}
+.shirt-face-label{position:absolute;top:14px;right:14px;font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--black);background:var(--yellow);padding:4px 12px;z-index:3;line-height:1.4}
+.shirt-face-front .shirt-face-label{background:var(--red);color:var(--white)}
+.shirt-face-stamp{position:absolute;bottom:14px;left:14px;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(0,0,0,.4);z-index:3;line-height:1.3}
+.shirt-hint{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.35);white-space:nowrap;z-index:2}
+@media(max-width:880px){
+  .shirt-inner{grid-template-columns:1fr;gap:32px;text-align:center}
+  .shirt-meta-strip,.shirt-pitch{margin-left:auto;margin-right:auto}
+  .shirt-ctas{justify-content:center}
+  .shirt-stage{min-height:480px;order:-1}
+  .shirt-card{width:min(360px,80vw)}
+}
+@media(prefers-reduced-motion:reduce){
+  .shirt-card{animation:none}
+  .shirt-stage-glow,.shirt-stage-floor,.shirt-badge-dot{animation:none}
+}
+
+/* VOLUNTEER SECTION */
+.volunteer-section{background:linear-gradient(135deg,#141414 0%,#1a1208 100%);border-top:1px solid rgba(255,208,0,.15);border-bottom:1px solid rgba(255,208,0,.15);padding:56px 40px}
+.volunteer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;gap:36px;align-items:center}
+.volunteer-spark{font-size:48px;line-height:1;filter:drop-shadow(0 0 20px rgba(255,208,0,.5));animation:volSpark 3s ease-in-out infinite}
+@keyframes volSpark{0%,100%{transform:rotate(0deg) scale(1);opacity:1}50%{transform:rotate(8deg) scale(1.08);opacity:.85}}
+.volunteer-copy{min-width:0}
+.volunteer-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5vw,52px);line-height:1;color:var(--white);margin-bottom:10px;letter-spacing:1px}
+.volunteer-text{font-size:15px;line-height:1.65;color:rgba(245,240,232,.75);max-width:540px}
+.volunteer-cta-wrap{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.volunteer-btn{font-size:17px;padding:14px 30px;white-space:nowrap}
+.volunteer-email{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.45)}
+@media(max-width:880px){
+  .volunteer-inner{grid-template-columns:1fr;text-align:center;gap:18px}
+  .volunteer-cta-wrap{align-items:center}
+  .volunteer-text{margin-left:auto;margin-right:auto}
+}
+
 .donate-section{background:var(--gray);padding:64px 40px}
 .donate-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center}
 .donate-text .section-label{color:var(--yellow)}
@@ -252,7 +329,8 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <li><a href="#contests">Contests</a></li>
     <li><a href="#prizes">Prizes</a></li>
     <li><a href="#sponsors">Sponsors</a></li>
-    <li><a href="#donate">Donate</a></li>
+    <li><a href="#shirt">Shirt</a></li>
+    <li><a href="#volunteer">Volunteer</a></li>
     <li><a href="#location">Location</a></li>
   </ul>
   <a href="#register" class="nav-cta">Register Now</a>
@@ -508,7 +586,8 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 
 <div class="divider"></div>
 
-<div class="donate-section" id="donate">
+<!-- Donation section hidden — replaced by Limited Edition Shirt section below. Restore by removing the style attribute on this wrapper.
+<div class="donate-section" id="donate" style="display:none">
   <div class="donate-inner">
     <div class="donate-text">
       <div class="section-label">Support</div>
@@ -520,6 +599,78 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <div class="donate-qr">
       <img src="images/qr-donate.png" alt="Donate to Maxled Youth — scan to give">
       <div class="donate-qr-label">Scan to Donate</div>
+    </div>
+  </div>
+</div>
+-->
+
+<div class="shirt-section" id="shirt">
+  <div class="shirt-bg-grid"></div>
+  <div class="shirt-inner">
+    <div class="shirt-copy">
+      <div class="shirt-badge">
+        <span class="shirt-badge-dot"></span>
+        Limited Edition
+      </div>
+      <div class="section-label" style="color:var(--yellow)">Event Day Drop</div>
+      <h2 class="section-title shirt-title">
+        Donate <span class="shirt-title-amt">$20+</span><br>
+        Get the Shirt.
+      </h2>
+      <p class="shirt-collab">NY State of Mind <span class="shirt-x">&times;</span> Maxled Youth <span class="shirt-x">&middot;</span> Queens Boro Bash</p>
+      <p class="shirt-pitch">Every $20+ donation gets you an Event Day Shirt. Thank you for supporting and helping us give back to the Queens community.</p>
+      <div class="shirt-meta-strip">
+        <div class="shirt-meta">
+          <span class="shirt-meta-num">$20+</span>
+          <span class="shirt-meta-lbl">Donation</span>
+        </div>
+        <div class="shirt-meta">
+          <span class="shirt-meta-num">First</span>
+          <span class="shirt-meta-lbl">Edition</span>
+        </div>
+        <div class="shirt-meta">
+          <span class="shirt-meta-num">6/13</span>
+          <span class="shirt-meta-lbl">Event Day Pickup</span>
+        </div>
+      </div>
+      <div class="shirt-ctas">
+        <a href="https://square.link/u/SLySoLYc" target="_blank" rel="noopener" class="btn-primary shirt-btn-primary">Donate &amp; Claim Shirt</a>
+        <button class="btn-outline shirt-btn-flip" type="button" id="shirt-flip-btn">Flip Shirt</button>
+      </div>
+      <p class="shirt-fineprint">Select your size at checkout &middot; Pickup at the merch tent on event day &middot; Limited quantities while supplies last</p>
+    </div>
+
+    <div class="shirt-stage">
+      <div class="shirt-stage-glow"></div>
+      <div class="shirt-card" id="shirt-card" role="button" tabindex="0" aria-label="Tap to flip shirt">
+        <div class="shirt-face shirt-face-front">
+          <img src="images/shirt-front.png" alt="Queens Boro Bash limited edition shirt — front">
+          <div class="shirt-face-label">Front</div>
+          <div class="shirt-face-stamp">Maxled Youth &middot; QBB 2026</div>
+        </div>
+        <div class="shirt-face shirt-face-back">
+          <img src="images/shirt-back.png" alt="Queens Boro Bash limited edition shirt — back with sponsor logos">
+          <div class="shirt-face-label">Back</div>
+          <div class="shirt-face-stamp">Sponsor Roll Call</div>
+        </div>
+      </div>
+      <div class="shirt-stage-floor"></div>
+      <div class="shirt-hint">Hover to pause &middot; Tap to flip</div>
+    </div>
+  </div>
+</div>
+
+<div class="volunteer-section" id="volunteer">
+  <div class="volunteer-inner">
+    <div class="volunteer-spark">&#10024;</div>
+    <div class="volunteer-copy">
+      <div class="section-label" style="color:var(--yellow);margin-bottom:6px">Join the Crew</div>
+      <h2 class="volunteer-title">Want to Volunteer?</h2>
+      <p class="volunteer-text">Max is pulling together a dedicated crew to help make event day run smooth. Setup, registration, judging, food, breakdown &mdash; if you want in, we want you.</p>
+    </div>
+    <div class="volunteer-cta-wrap">
+      <a href="mailto:maxledyouth@gmail.com?subject=Queens%20Boro%20Bash%20%E2%80%94%20Volunteer" class="btn-primary volunteer-btn">Email to Volunteer</a>
+      <div class="volunteer-email">maxledyouth@gmail.com</div>
     </div>
   </div>
 </div>
@@ -594,7 +745,8 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
     <a href="#contests">Contests</a>
     <a href="#prizes">Prizes</a>
     <a href="#sponsors">Sponsors</a>
-    <a href="#donate">Donate</a>
+    <a href="#shirt">Shirt</a>
+    <a href="#volunteer">Volunteer</a>
     <a href="#location">Location</a>
     <a href="#register">Register</a>
     <a href="https://www.instagram.com/maxledyouth" target="_blank">Instagram</a>
@@ -623,6 +775,18 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
   }
   update();
   setInterval(update,30000);
+})();
+(function(){
+  var card=document.getElementById('shirt-card');
+  var btn=document.getElementById('shirt-flip-btn');
+  if(!card)return;
+  function flip(){
+    if(!card.classList.contains('manual')){card.classList.add('manual');}
+    card.classList.toggle('flipped');
+  }
+  card.addEventListener('click',flip);
+  card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}});
+  if(btn)btn.addEventListener('click',flip);
 })();
 </script>
 </body>

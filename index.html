@@ -349,6 +349,11 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
 .gallery-empty{text-align:center;padding:56px 24px;border:1px dashed rgba(255,255,255,.12);font-family:'Barlow Condensed',sans-serif;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.4)}
 .gallery-more{text-align:center;margin-top:28px}
 .gallery-more-count{display:block;font-family:'Barlow Condensed',sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,240,232,.4);margin-top:12px}
+.gallery-credits{margin-top:44px;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;gap:14px 40px;justify-content:center}
+.gallery-credit{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;color:rgba(245,240,232,.55)}
+.gallery-credit .cr-role{color:rgba(245,240,232,.35);margin-right:8px}
+.gallery-credit a{color:var(--yellow);text-decoration:none;border-bottom:1px solid rgba(255,208,0,.35);transition:border-color .2s}
+.gallery-credit a:hover{border-color:var(--yellow)}
 @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:560px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:6px}}
 
@@ -411,6 +416,10 @@ footer{background:#040404;padding:48px 40px;text-align:center;border-top:2px sol
   </div>
   <div class="gallery-grid" id="gallery-grid"></div>
   <div class="gallery-empty" id="gallery-empty">Photos dropping soon &mdash; hit play on the recap above while we sort through them.</div>
+  <div class="gallery-credits">
+    <div class="gallery-credit"><span class="cr-role">Photos</span><a href="https://www.instagram.com/keeppushingproduction/" target="_blank" rel="noopener">Keep Pushing Productions</a></div>
+    <div class="gallery-credit"><span class="cr-role">Video</span>Original Vision Group</div>
+  </div>
 </section>
 
 <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Photo viewer">

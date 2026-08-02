@@ -1,25 +1,27 @@
 QUEENS BORO BASH 2026 — EVENT GALLERY
 =====================================
 
-Drop your event photos in THIS folder and they appear on the site
-automatically. No code changes, no rebuild.
+Photos are served in TWO tiers, same filename in each folder:
 
-NAMING (important):
-  qbb-01.jpg
-  qbb-02.jpg
-  qbb-03.jpg
-  ... and so on, in order.
+  images/gallery/qbb-NN.jpg        full size  (~2000px)  -> lightbox
+  images/gallery/thumb/qbb-NN.jpg  thumbnail  (~640px)   -> grid
 
-RULES:
-  - Use .jpg files.
-  - Number them starting at 01, with NO gaps (01, 02, 03, ...).
-    The page probes in order and stops after it hits a run of
-    missing numbers, so a gap (e.g. skipping 04) will cut the
-    gallery off early.
-  - Zero-pad single digits: qbb-01, not qbb-1.
-  - They display in numeric order, so name them in the order you
-    want them shown.
-  - Reasonable web sizes (long edge ~1600-2000px, each under ~500KB)
-    keep the page fast. The lightbox shows the same file enlarged.
+They are named qbb-01.jpg .. qbb-127.jpg in a pre-randomized order
+(shuffled across skaters on purpose, so the grid is not grouped).
 
-That's it. Add files, refresh the page.
+The site renders them from a manifest in index.html, not by scanning
+this folder. The gallery script has:
+
+  var COUNT = 127;   // number of photos
+
+TO CHANGE THE SET
+-----------------
+1. Add or remove matching files in BOTH folders (full + thumb), keeping
+   the qbb-NN.jpg naming contiguous and zero-padded (qbb-01, not qbb-1).
+2. Update COUNT in the gallery script in index.html to the new total.
+3. Commit and push. Vercel redeploys.
+
+REGENERATING FROM ORIGINALS (how these were made)
+-------------------------------------------------
+Full:  sips -Z 2000 --setProperty format jpeg --setProperty formatOptions 82 SRC --out qbb-NN.jpg
+Thumb: sips -Z 640  --setProperty format jpeg --setProperty formatOptions 72 SRC --out thumb/qbb-NN.jpg
